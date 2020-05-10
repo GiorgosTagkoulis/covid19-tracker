@@ -1,0 +1,22 @@
+{
+  "name": "covid19-us-tracker",
+  "version": "1.0.0",
+  "description": "A table that is updated daily with hospitilized patients and deaths in US states",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/GiorgosTagkoulis/covid19-tracker.git"
+  },
+  "keywords": [
+    "covid"
+  ],
+  "author": "Georgios Tagkoulis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GiorgosTagkoulis/covid19-tracker/issues"
+  },
+  "homepage": "https://github.com/GiorgosTagkoulis/covid19-tracker#readme"
+}
