@@ -4,7 +4,9 @@
   "description": "A table that is updated daily with hospitilized patients and deaths in US states",
   "main": "index.js",
   "scripts": {
-    "start-dev": "nodemon index.js",
+    "start": "node index.js",
+    "start:dev": "nodemon index.js",
+    "start:client": "cd client && yarn start",
     "lint": "eslint index.js",
     "pretest": "npm run lint",
     "test": "./node_modules/mocha/bin/mocha test.js"
