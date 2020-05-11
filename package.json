@@ -4,6 +4,8 @@
   "description": "A table that is updated daily with hospitilized patients and deaths in US states",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

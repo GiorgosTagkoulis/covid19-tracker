@@ -1,5 +1,5 @@
 const express = require('express');
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
 const bodyParser = require('body-parser');
 const path = require('path');
 
@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.resolve(__dirname, 'client', 'build')));
 
-const notFound = 404;
+// const notFound = 404;
 
 app.get('/', (_req, res) => {
   res.sendCode(200);
