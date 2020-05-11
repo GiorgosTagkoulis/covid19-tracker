@@ -39,9 +39,7 @@ const fetchData = (res) => {
         return {
           stateName: states[index].name,
           hospitilized: r[0].hospitalizedCurrently,
-          deaths: r
-            .slice(0, 3)
-            .reduce((acc, cur) => acc + cur.death, 0),
+          deaths: r[2].death - r[0].death,
         };
       }),
     )
