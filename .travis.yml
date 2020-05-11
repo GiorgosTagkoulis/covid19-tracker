@@ -1,0 +1,11 @@
+language: node_js
+node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: szEY2iQ7SmAHc+I92OMwuVr0bPBLvwWrZn7EFGt001gt37EmZ6mDmawCK7PrQONiRhmERUCRhqTe0mGqvgZl1ganqcoqzyrtHcrtUuJrXizf6pgJQVXUWMcavHLPm3znsk2YAVeero4ERyKq/Fw5jbqktBayLY128apV+JmOyYhQGjUol2c1EpQFJsbsq4FmIgQP+q75gDZV8Jo8wncoGcghoo2e1llFD9VNVrAdw36KKWurXS86GEFy/qtUkRlVObXuO0cMBizhIL49gdo5NQeS29E+YRNquNjrJCXjh/jcX+bnXX/h0NK4/9IoP4cbhf52jcSSGUyCSg5y0w9c5tz5qvQ0FX1UpjV4vEzXt/rQUkU7h2aGJaw77P4X8RX1UccfGFuQqbD6THtX2D6IKPQQLIkGRgcImIsz4X5QlxFJ2MRDpvuTcLjNHK8OPo0Vh/uGuwoGRi1dMTeeOtnkwK5cixIYN7lu39sEffFyUE4bkF8MqM1SPTrO7xO2Jx3+KDb65uVQnUpapgY66jlTQZ5Q3D3309fIAU46jZS3z8YujUmShZFfXXHw1QxudtiD0MZGnxpemjCtnLyke5I0Dc4+LLa/dLByxal5i8NVOSdnEZM0gihqIqoMXcALqjUg+XKE41eccjMl95wwfXLP+87QPIAy6Z8zDQWlJUO19Wg=
+  app: 
+    master: my-covid19-app
+  on:
+    repo: GiorgosTagkoulis/covid19-tracker
+  skip_cleanup: 'true'

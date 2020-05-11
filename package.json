@@ -9,7 +9,8 @@
     "start:client": "cd client && yarn start",
     "lint": "eslint index.js",
     "pretest": "npm run lint",
-    "test": "./node_modules/mocha/bin/mocha test.js"
+    "test": "./node_modules/mocha/bin/mocha test.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
