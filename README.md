@@ -1,4 +1,5 @@
-# Visualize Covid19 patients in US
+[![Build Status](https://travis-ci.org/GiorgosTagkoulis/covid19-tracker.svg?branch=master)](https://travis-ci.org/GiorgosTagkoulis/covid19-tracker)
+# Visualize Covid19 patients in US 
 
 An app that calls the [Data API](https://covidtracking.com/api) from *The Covid Tracking Project*. In this app, a table is presented with the daily updates from the USA per state. The columns include name of state, hospitilized patients and deaths in the last three days.
 
