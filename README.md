@@ -16,7 +16,7 @@ Install client dependencies: `cd client && yarn install`
 
 Once back to the root directory of the project `(cd ../` if one following the commands presented here), run the server in production: `npm start`
 
-Run the server in development: `npm start:dev`
+Run the server in development: `npm start:dev`  
 Run the client: `npm run start:client`
 
 To run the tests: `npm t`
