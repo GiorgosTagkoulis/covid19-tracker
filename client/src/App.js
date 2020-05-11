@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -11,47 +11,66 @@ import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
+    minWidth: 850,
   },
 });
+
+const getTodayDate = () => {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  let mm = today.getMonth() + 1;
+  let dd = today.getDate();
+  mm = mm < 10 ? `0${mm}` : mm;
+  dd = dd < 10 ? `0${dd}` : dd;
+  return yyyy + mm + dd;
+};
 
 function createData( state, hospitilized, deaths ) {
   return { state, hospitilized, deaths };
 }
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0),
-  createData('Ice cream sandwich', 237, 9.0),
-  createData('Eclair', 262, 16.0),
-  createData('Cupcake', 305, 3.7),
-  createData('Gingerbread', 356, 16.0),
-];
-
 function App() {
+  const [date, setDate] = useState(null);
+  const [resources, setResources] = useState(null);
   const classes = useStyles();
 
+  useEffect(() => {
+    if (date !== getTodayDate()) {
+      fetch(`/data`)
+        .then((res) => res.json())
+        .then((res) => {
+          console.log(res);
+          setDate(res.date);
+          setResources(res.resources);
+        })
+    } 
+  }, [])
+
   return (
-    <Box bgcolor="blue" mx="auto" display="flex" alignItems="center" flexDirection="column" width="80%">
-      <h1>Data for Covid-19 in USA (per state)</h1>
+    <Box bgcolor="aqua" mx="auto" display="flex" alignItems="center" flexDirection="column" width="70%">
+      <h1 align="center">Data for Covid-19 in USA (per state)</h1>
       <TableContainer component={Paper} align="center">
-        <Table className={classes.table} aria-label="simple table"  style={{ width: 1200 }}>
+        <Table className={classes.table} aria-label="simple table" bgcolor="#FFFFFE" style={{ width: 900 }}>
           <TableHead>
             <TableRow>
-              <TableCell align="center"><b>States in USA</b></TableCell>
-              <TableCell align="center"><b>Hospitilized</b>&nbsp;(today)</TableCell>
-              <TableCell align="center"><b>Total new corona deaths during the last 3 days</b></TableCell>
+              <TableCell align="center"><h3>States in USA</h3></TableCell>
+              <TableCell align="center" ><h3>Hospitilized&nbsp;(today)</h3></TableCell>
+              <TableCell align="center"><h3>Total new corona deaths during the last 3 days</h3></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.state}>
-                <TableCell component="th" scope="row" align="center">
-                  {row.state}
-                </TableCell>
-                <TableCell align="center">{row.hospitilized}</TableCell>
-                <TableCell align="center">{row.deaths}</TableCell>
-              </TableRow>
-            ))}
+            { resources !== null 
+              ? resources.map((row) => (
+                <TableRow key={row.stateName}>
+                  <TableCell component="th" scope="row" align="center">
+                    {row.stateName}
+                  </TableCell>
+                  <TableCell align="center">{row.hospitilized !== null ? <b>{row.hospitilized}</b> : "n/a"}</TableCell>
+                  <TableCell align="center">{row.deaths !== null ? <b>{row.deaths}</b> : "n/a"}</TableCell>
+                </TableRow>
+              ))
+              : null
+            }
           </TableBody>
         </Table>
       </TableContainer>
