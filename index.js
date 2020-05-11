@@ -39,7 +39,7 @@ const fetchData = (res) => {
         return {
           stateName: states[index].name,
           hospitilized: r[0].hospitalizedCurrently,
-          deaths: r[2].death - r[0].death,
+          deaths: r[0].death - r[2].death,
         };
       }),
     )
