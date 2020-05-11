@@ -4,7 +4,7 @@ An app that calls the [Data API](https://covidtracking.com/api) from *The Covid 
 
 ## Install Dependencies
 
-Clone the repo: `git@github.com:GiorgosTagkoulis/covid19-tracker.git`
+Clone the repo: `git clone git@github.com:GiorgosTagkoulis/covid19-tracker.git`
 
 and change directory to the repo: `cd covid19-tracker`
 
@@ -15,8 +15,8 @@ Install client dependencies: `cd client && yarn install`
 ## Run the server and the client
 
 Once back to the root directory of the project `(cd ../` if one following the commands presented here), run the server in production: `npm start`
-
 Run the server in development: `npm start:dev`  
+
 Run the client: `npm run start:client`
 
 To run the tests: `npm t`
